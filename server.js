@@ -1,6 +1,15 @@
 var express = require('express');
+var Sequelize = require ('sequelize');
 var app = express();
 var port = 8000;
+
+var pass = null;
+var usern = "root";
+var dataBaseName = 'Legitsu';
+
+var sequelize = new Sequelize(dataBaseName, usern, pass, {
+	"host": "localhost"
+});
 
 app.use(express.bodyParser());
 app.use(function(req,res,next){
@@ -9,5 +18,22 @@ app.use(function(req,res,next){
 	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 	next();
 });
+
+var exercise = sequelize.define('Exercise', {
+	name: Sequelize.STRING,
+	difficulty: Sequelize.INTEGER,
+	equipment: Sequelize.STRING
+
+});
+
+var bodyFocus = sequelize.define('BodyFocus', {
+	bodyFocus: sequelize.STRING
+});
+
+var goal = sequelize.define('Goal', {
+	goal: sequelize.STRING
+});
+
+sequelize.sync();
 
 app.listen(port);

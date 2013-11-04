@@ -1,0 +1,15 @@
+{
+  "name": "NotLegitsu",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "v1.2.0-rc.3",
+    "json3": "~3.2.4",
+    "jquery": "~1.9.1",
+    "bootstrap-sass": "~2.3.1"
+
+  },
+  "devDependencies": {
+    "angular-mocks": "v1.2.0-rc.3",
+    "angular-scenario": "v1.2.0-rc.3"
+  }
+}

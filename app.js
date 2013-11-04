@@ -1,13 +1,13 @@
 var app = angular.module('NotLegitsu', []);
 
-function legitsuRouteConfig($routeprovider){
-	$routeprovider.
+function legitsuRouteConfig($routeProvider){
+	$routeProvider.
 		when('/', {
-			controller: customizeCtrl,
+			controller: 'customizeCtrl',
 			templateUrl: 'Partials/customize.html'
 		}).
 		when('/exercise', {
-			controller: exerciseCtrl,
+			controller: 'exerciseCtrl',
 			templateUrl: 'Partials/exercise.html'
 		}).
 		otherwise({
