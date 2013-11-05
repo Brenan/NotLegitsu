@@ -19,6 +19,10 @@ app.use(function(req,res,next){
 	next();
 });
 
+// api routes get listed here
+//  apiroutes here: app.get('/',)
+app.use(express.static(__dirname));
+
 var exercise = sequelize.define('Exercise', {
 	name: Sequelize.STRING,
 	difficulty: Sequelize.INTEGER,
@@ -27,11 +31,11 @@ var exercise = sequelize.define('Exercise', {
 });
 
 var bodyFocus = sequelize.define('BodyFocus', {
-	bodyFocus: sequelize.STRING
+	bodyFocus: Sequelize.STRING
 });
 
 var goal = sequelize.define('Goal', {
-	goal: sequelize.STRING
+	goal: Sequelize.STRING
 });
 
 sequelize.sync();
