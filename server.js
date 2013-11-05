@@ -27,7 +27,6 @@ var exercise = sequelize.define('Exercise', {
 	name: Sequelize.STRING,
 	difficulty: Sequelize.INTEGER,
 	equipment: Sequelize.STRING
-
 });
 
 var bodyFocus = sequelize.define('BodyFocus', {
