@@ -1,4 +1,4 @@
-var app = angular.module('NotLegitsu', []);
+var app = angular.module('NotLegitsu', ['ngRoute']);
 
 function legitsuRouteConfig($routeProvider){
 	$routeProvider.
@@ -9,6 +9,10 @@ function legitsuRouteConfig($routeProvider){
 		when('/exercise', {
 			controller: 'exerciseCtrl',
 			templateUrl: 'Partials/exercise.html'
+		}).
+		when('/rest', {
+			controller: 'restCtrl',
+			templateUrl: 'Partials/rest.html'
 		}).
 		otherwise({
 			redirectTo: '/'

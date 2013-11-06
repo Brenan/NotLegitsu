@@ -73,4 +73,47 @@ ul{
 	color: white;
 }
 
+/*exercise.html*/
+
+.exerciseNav {
+	width: 100%;
+	height: 60px;
+	background-color: rgb(61,198,242);
+}
+
+h1 {
+	text-align: center;
+}
+
+.exerciseControls {
+	text-align: center;
+
+}
+
+.exerciseControls i {
+	margin-left: 20px;
+	opacity: .7;
+}
+
+.exerciseControls i:hover {
+	opacity: 1;
+}
+
+.exerciseCard {
+	height: 90%;
+	width: 80%;
+	border: 2px solid rgb(61,198,242);
+	border-radius: 5px;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.timer {
+	background-color: black;
+	opacity: .7;
+	width: 125px;
+	padding: 10px;
+	float: right;
+}
+
 
