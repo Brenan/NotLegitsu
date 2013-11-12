@@ -1,15 +1,11 @@
-<nav class="exerciseNav">
-	<div class = "exerciseControls">
-		<i class="fa fa-pause fa-4x"></i>
-		<i class="fa fa-arrow-right fa-4x"></i>	
-	</div>
-</nav>
+
 
 <div class="exerciseCard">
-	<h1>Name of Exercise</h1>
+	
 		<div class="timer">
-			<h2>30 sec.</h2>
+			<h2>{{timeLeft}}</h2>
 		</div>
+		<h1>{{currentExercise.name}}</h1>
 
 	<ul>
 		<li>Step 1</li>
@@ -19,4 +15,9 @@
 
 
 </div>
+
+
+<audio autoplay="autoplay">   
+    <source src="/beep-7.mp3" />       
+</audio> 
 

@@ -1,4 +1,4 @@
-<html ng-app='NotLegitsu'>
+<html ng-app="NotLegitsu">
 <head>
 	<title>Legitsu</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +9,22 @@
 
 	<script src='bower_components/angular/angular.js' type='text/javascript'></script>
 	<script src='bower_components/angular-route/angular-route.js' type='text/javascript'></script>
+	<script src='bower_components/angular-resource/angular-resource.js' type='text/javascript'></script>
+	<script src='app.js' type='text/javascript'></script>
 	<script src='app.js' type='text/javascript'></script>
 	<script src='Controllers/customizeCtrl.js' type='text/javascript'></script>
 	<script src='Controllers/exerciseCtrl.js' type='text/javascript'></script>
+	<script src='Controllers/restCtrl.js' type='text/javascript'></script>
+	<script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
 
 </head>
-
-
-<body>
-	<div ng-view></div>
-
+<nav class="exerciseNav">
+	<div class = "exerciseControls">
+		<i class="fa fa-pause fa-4x"></i>
+		<i class="fa fa-arrow-right fa-4x"></i>	
+	</div>
+</nav>
+<div ng-view></div>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-var app = angular.module('NotLegitsu', ['ngRoute']);
+var app = angular.module('NotLegitsu', ['ngRoute', 'ngResource']);
 
 function legitsuRouteConfig($routeProvider){
 	$routeProvider.
