@@ -1,6 +1,6 @@
 app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource){
 
-	$scope.timeLeft = 10;
+	$scope.timeLeft = 8;
  
 
 	$scope.onTimeout = function(){
@@ -8,6 +8,7 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource){
         if ($scope.timeLeft > 0) {
             mytimeout = $timeout($scope.onTimeout,1000);
         } else{
+            $('#beep')[0].play();
         	$location.path('/rest').replace();
         }
     }

@@ -16,17 +16,38 @@ nav h1 {
 	width: 80%;
 	margin: auto;
 	padding-top: 40px;
+
 }
 .control  {
 	width: 25%;
 	height: 200px;
-	border-left: 1px solid rgb(61,198,242);
+	border-left: 2px solid white;
 	float: left;
+	border-radius: 5px;
+	background-color: rgba(0,0,0,.1);
 	
+}
+
+.control:hover {
+	background-color: rgba(0,0,0,.15);
+}
+
+.control i {
+	display: block;
+	text-align: center;
+	padding: 15px;
+	color: rgba(71,210,250,1);
 }
 
 .control:first-child {
 	border-left: none;
+}
+.control:first-child input{
+	line-height: 50px;
+	text-align: center;
+	border-radius: 5px;
+	font-size: 30px;
+	width: 35%;
 }
 
 .control h2 {
@@ -54,9 +75,10 @@ ul{
 	padding: 20px;
 	border-radius:  5px;
 	font-size: 2em;
-	color: white;
+	color: rgba(0,0,0,.7);
 	border:0;
 	margin-top: 40px;
+	font-weight: bold;
 }
 
 .start {
@@ -64,8 +86,7 @@ ul{
 }
 
  .start button:hover {
-	background-color: rgb(71,210,250);
-	color: white;
+	background-color: rgba(61,198,242,.8);
 }
 
 .start button:active {
