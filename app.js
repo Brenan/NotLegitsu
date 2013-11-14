@@ -20,3 +20,17 @@ function legitsuRouteConfig($routeProvider){
 }
 
 app.config(legitsuRouteConfig);
+
+app.service('playlist', function () {
+   
+	var settings = {};
+ 
+	return {
+		load: function() {
+			return settings;
+		},
+		save: function(obj) {
+			settings = obj;
+		}
+	};
+});

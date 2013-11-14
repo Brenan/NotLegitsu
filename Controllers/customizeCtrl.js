@@ -1,19 +1,26 @@
-app.controller('customizeCtrl', function($scope, $location){
-	$scope.settings.exerciseTime = 15;
-	$scope.settings.easy = false;
-	$scope.settings.moderate = true;
-	$scope.settings.challenging = false;
-	$scope.settings.fullBody = true;
-	$scope.settings.core = false;
-	$scope.settings.lowerBody = false;
-	$scope.settings.upperBody = false;
-	$scope.settings.noEquipment = true;
-	$scope.settings.weights = true;
-	$scope.settings.yogaMat = false;
-	$scope.settings.exerciseBall = false;
-	$scope.settings.stretchBand = false;
+app.controller('customizeCtrl', function($scope, $location, playlist){
+	
+	$scope.settings = {
+
+		exerciseTime : 15,
+		easy : true,
+		moderate : true,
+		challenging : false,
+		fullBody : true,
+		core :false,
+		lowerBody : false,
+		upperBody : false,
+		noEquipment : true,
+		weights : true,
+		yogaMat : false,
+		exerciseBall : false,
+		stretchBand : false
+	};
+
+	
 
 	$scope.go = function ( path ) {
+		playlist.save($scope.settings);
   		$location.path( path );
 	};
 

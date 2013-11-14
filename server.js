@@ -20,6 +20,7 @@ app.use(function(req,res,next){
 });
 
 app.get('/api/exercise/next', function(req,res){
+	console.log(req.body);
 	exercise.findAll().success(function(exercises){
 		var i = Math.floor(Math.random() * (exercises.length));
 		res.send(exercises[i]);

@@ -1,4 +1,4 @@
-app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource){
+app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,playlist){
 
 	$scope.timeLeft = 8;
  
@@ -11,11 +11,13 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource){
             $('#beep')[0].play();
         	$location.path('/rest').replace();
         }
-    }
+    };
     var mytimeout = $timeout($scope.onTimeout,1000);
 
     var Exercise = $resource('/api/exercise/next');
 
-    $scope.currentExercise = Exercise.get();
+    var settings = playlist.load();
+
+    $scope.currentExercise = Exercise.get(settings);
 	
 });
