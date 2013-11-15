@@ -14,12 +14,14 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,sett
     };
     var mytimeout = $timeout($scope.onTimeout,1000);
 
-    var Exercise = $resource('/api/exercise/next');
+    // var Exercise = $resource('/api/exercise/next');
 
-    var settings = settingsService.load();
+    var playList = settingsService.load();
+    $scope.currentExercise = $scope.playList.list[0];
+    // $scope.playList = Exercise.get(settings, function(){
+    //     $scope.currentExercise = $scope.playList.list[0];
+    // });
 
-    $scope.playList = Exercise.get(settings);
-
-    console.log($scope.playList);
+    
 	
 });

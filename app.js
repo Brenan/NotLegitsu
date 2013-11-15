@@ -21,16 +21,17 @@ function legitsuRouteConfig($routeProvider){
 
 app.config(legitsuRouteConfig);
 
-app.service('settingsService', function () {
+app.service('settingsService', ["$resource", function ($resource) {
    
-	var settings = {};
+	var playList = {};
+	var Exercise = $resource('/api/exercise/next');
  
 	return {
 		load: function() {
-			return settings;
+			return playList;
 		},
 		save: function(obj) {
-			settings = obj;
+			playList = Exercise.get(obj);
 		}
 	};
-});
+}]);
