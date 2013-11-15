@@ -20,11 +20,21 @@ app.use(function(req,res,next){
 });
 
 app.get('/api/exercise/next', function(req,res){
-	console.log(req.body);
-	exercise.findAll().success(function(exercises){
-		var i = Math.floor(Math.random() * (exercises.length));
-		res.send(exercises[i]);
+
+	var numExercises = Math.round((req.query.exerciseTime*60)/40);
+	var exerciseList = {list:[]};
+	for(i=0;i<numExercises;i++){
+		exercise.findAll().success(function(exercises){
+		var e = Math.floor(Math.random() * (exercises.length));
+		exerciseList.list.push(exercises[e]);
 	});
+	}
+	console.log(exerciseList);
+	res.send(exerciseList);
+	// exercise.findAll().success(function(exercises){
+	// 	var e = Math.floor(Math.random() * (exercises.length));
+	// 	res.send(exercises[e]);
+	// });
 });
 // api routes get listed here
 //  apiroutes here: app.get('/',)

@@ -1,4 +1,4 @@
-app.controller('customizeCtrl', function($scope, $location, playlist){
+app.controller('customizeCtrl', function($scope, $location, settingsService){
 	
 	$scope.settings = {
 
@@ -20,7 +20,7 @@ app.controller('customizeCtrl', function($scope, $location, playlist){
 	
 
 	$scope.go = function ( path ) {
-		playlist.save($scope.settings);
+		settingsService.save($scope.settings);
   		$location.path( path );
 	};
 

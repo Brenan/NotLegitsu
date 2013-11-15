@@ -21,7 +21,7 @@ function legitsuRouteConfig($routeProvider){
 
 app.config(legitsuRouteConfig);
 
-app.service('playlist', function () {
+app.service('settingsService', function () {
    
 	var settings = {};
  

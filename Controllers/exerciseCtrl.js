@@ -1,4 +1,4 @@
-app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,playlist){
+app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,settingsService){
 
 	$scope.timeLeft = 8;
  
@@ -16,8 +16,10 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,play
 
     var Exercise = $resource('/api/exercise/next');
 
-    var settings = playlist.load();
+    var settings = settingsService.load();
 
-    $scope.currentExercise = Exercise.get(settings);
+    $scope.playList = Exercise.get(settings);
+
+    console.log($scope.playList);
 	
 });
