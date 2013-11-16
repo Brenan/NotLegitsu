@@ -20,8 +20,10 @@ app.controller('customizeCtrl', function($scope, $location, settingsService){
 	
 
 	$scope.go = function ( path ) {
-		settingsService.save($scope.settings);
-  		$location.path( path );
+		settingsService.createPlaylist($scope.settings, function(){
+			$location.path( path );
+		});
+  		
 	};
 
 });

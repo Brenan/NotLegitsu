@@ -1,4 +1,4 @@
-var app = angular.module('NotLegitsu', ['ngRoute', 'ngResource']);
+var app = angular.module('NotLegitsu', ['ngRoute', 'ngResource', 'ngAnimate']);
 
 function legitsuRouteConfig($routeProvider){
 	$routeProvider.
@@ -27,11 +27,13 @@ app.service('settingsService', ["$resource", function ($resource) {
 	var Exercise = $resource('/api/exercise/next');
  
 	return {
-		load: function() {
+		loadPlaylist: function() {
 			return playList;
 		},
-		save: function(obj) {
-			playList = Exercise.get(obj);
+		createPlaylist: function(obj, callback) {
+			playList = Exercise.get(obj, function(){
+				callback();
+			});
 		}
 	};
 }]);

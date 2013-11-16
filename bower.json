@@ -5,6 +5,7 @@
     "angular": "v1.2.0",
     "angular-resource": "v1.2.0",
     "angular-route": "v1.2.0",
+    "angular-animate": "v1.2.0",
     "bootstrap": "*",
     "font-awesome": "*",
     "json3": "~3.2.4",

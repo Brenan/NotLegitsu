@@ -1,27 +1,33 @@
 app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,settingsService){
 
-	$scope.timeLeft = 8;
- 
-
-	$scope.onTimeout = function(){
-        $scope.timeLeft--;
-        if ($scope.timeLeft > 0) {
-            mytimeout = $timeout($scope.onTimeout,1000);
-        } else{
-            $('#beep')[0].play();
-        	$location.path('/rest').replace();
-        }
-    };
-    var mytimeout = $timeout($scope.onTimeout,1000);
-
-    // var Exercise = $resource('/api/exercise/next');
-
-    var playList = settingsService.load();
-    $scope.currentExercise = $scope.playList.list[0];
-    // $scope.playList = Exercise.get(settings, function(){
-    //     $scope.currentExercise = $scope.playList.list[0];
-    // });
-
-    
 	
+    var playList = settingsService.loadPlaylist();
+    $scope.currentIndex = 0;
+    $scope.currentExercise = playList.list[$scope.currentIndex];
+    
+
+    for(var i=0; i<playList.list.length; i++){
+
+        $scope.timeLeft = 8;
+        $scope.onTimeout = function(){
+            
+            $scope.timeLeft--;
+            mytimeout = $timeout($scope.onTimeout,1000).then(function(){
+                if($scope.timeLeft<0){
+                    $('#beep')[0].play();
+                    $scope.currentIndex++;
+                    $scope.currentExercise = playList.list[$scope.currentIndex];
+                    $scope.timeLeft=8;
+                    // $location.path('/rest').replace();
+                }    
+            });
+           
+        };
+        var mytimeout = $timeout($scope.onTimeout,1000);
+
+    }
+	
+
+   
+
 });

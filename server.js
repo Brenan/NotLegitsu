@@ -5,7 +5,7 @@ var port = 8000;
 
 var pass = null;
 var usern = "root";
-var dataBaseName = 'Legitsu';
+var dataBaseName = 'Legitsuu';
 
 var sequelize = new Sequelize(dataBaseName, usern, pass, {
 	"host": "localhost"
