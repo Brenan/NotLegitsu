@@ -4,30 +4,36 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,sett
     var playList = settingsService.loadPlaylist();
     $scope.currentIndex = 0;
     $scope.currentExercise = playList.list[$scope.currentIndex];
+    var exerciseTime = 10000;
+    count = exerciseTime/1000;
     
 
-    for(var i=0; i<playList.list.length; i++){
+    var advance = function(){
+        if( $scope.currentIndex == playList.list.length -1){
+            alert("You Are Legitsu.");          
+            return;
+        }
+        $('#beep')[0].play();
+        var timeToNextExercise = $timeout(advance, exerciseTime);
+        timer();
+        $scope.currentExercise = playList.list[++$scope.currentIndex];
+        
+    };
 
-        $scope.timeLeft = 8;
-        $scope.onTimeout = function(){
-            
-            $scope.timeLeft--;
-            mytimeout = $timeout($scope.onTimeout,1000).then(function(){
-                if($scope.timeLeft<0){
-                    $('#beep')[0].play();
-                    $scope.currentIndex++;
-                    $scope.currentExercise = playList.list[$scope.currentIndex];
-                    $scope.timeLeft=8;
-                    // $location.path('/rest').replace();
-                }    
-            });
-           
-        };
-        var mytimeout = $timeout($scope.onTimeout,1000);
-
+    var timer = function(){
+        if(count==0){
+            count =exerciseTime/1000;
+            return;
+        }
+        $scope.count=count;
+        count--;
+        var countDown = $timeout(timer,1000);
     }
-	
+    
+    $timeout(advance, exerciseTime);
+    timer();
 
-   
+
+
 
 });
