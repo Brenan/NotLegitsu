@@ -27,8 +27,12 @@ app.get('/api/exercise/next', function(req,res){
 		for(i=0;i<numExercises;i++){
 			var e = Math.floor(Math.random() * (exercises.length));
 			exerciseList.list.push(exercises[e]);
+			exerciseList.list.push({
+				name: "Rest"
+			});
 		}
 		res.send(exerciseList);
+		console.log(exerciseList);
 	});
 	
 });
