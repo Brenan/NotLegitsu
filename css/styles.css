@@ -20,7 +20,7 @@ nav h1 {
 }
 .control  {
 	width: 25%;
-	height: 200px;
+	height: 250px;
 	border-left: 2px solid white;
 	float: left;
 	border-radius: 5px;
@@ -48,6 +48,12 @@ nav h1 {
 	border-radius: 5px;
 	font-size: 30px;
 	width: 35%;
+	display: block;
+	margin: auto;
+}
+
+input[type='checkbox'] {
+	width: 15px;
 }
 
 .control h2 {

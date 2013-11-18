@@ -40,7 +40,7 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,sett
         }
         $scope.count=count;
         count--;
-        var countDown = $timeout(timer,1000);
+        countDown = $timeout(timer,1000);
     }
 
     var restTimer = function(){
@@ -50,7 +50,16 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,sett
         }
         $scope.count=restCount;
         restCount--;
-        var countDown = $timeout(restTimer,1000);
+        countDown = $timeout(restTimer,1000);
+    }
+
+    $scope.next = function(){
+        $timeout.cancel(timeToNextExercise);
+        advance();
+    }
+
+    $scope.pause = function(){
+        $timeout.pause();
     }
     
     $timeout(advance, exerciseTime);
