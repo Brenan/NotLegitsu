@@ -45,7 +45,10 @@ app.use(express.static(__dirname));
 var exercise = sequelize.define('Exercise', {
 	name: Sequelize.STRING,
 	difficulty: Sequelize.INTEGER,
-	equipment: Sequelize.STRING
+	equipment: Sequelize.STRING,
+	step1: Sequelize.STRING,
+	step2: Sequelize.STRING,
+	step3: Sequelize.STRING
 });
 
 var bodyFocus = sequelize.define('BodyFocus', {

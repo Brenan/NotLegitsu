@@ -156,4 +156,22 @@ h1 {
 	text-align: center;
 }
 
+.exerciseCard li{
+	display: inline-block;
+}
+
+.exerciseCard ul {
+	padding-top: 100px;
+}
+
+/*end view*/
+
+.end {
+	padding-top: 50px;
+}
+
+.end h2{
+	text-align: center;
+}
+
 

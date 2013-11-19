@@ -12,20 +12,21 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,sett
     
 
     var advance = function(){
-        if( $scope.currentIndex == playList.list.length-1){
-            alert("You Are Legitsu.");          
-            return;
+        if( $scope.currentIndex == playList.list.length-2){
+            $location.path('/end').replace(); 
+            return;         
+            
         }
         
         if($scope.currentIndex%2 === 0){
             $('#beep')[0].play();
-            var timeToNextExercise = $timeout(advance, restTime);
+            var switchIt = $timeout(switchCards, restTime).then(advance);
             $scope.comingUp ="Up Next: " + playList.list[$scope.currentIndex+2].name;
             restTimer();
 
         } else{
             $('#beepTwo')[0].play();
-            var timeToNextExercise = $timeout(advance, exerciseTime);
+            var switchIt = $timeout(switchCards, exerciseTime).then(advance);
             $scope.comingUp=null;
             timer();
         }
@@ -53,6 +54,11 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,sett
         countDown = $timeout(restTimer,1000);
     }
 
+    var switchCards = function(){
+        $(".exerciseCard").hide("slide", { direction: "left" }, 100); 
+        $(".exerciseCard").show("slide", { direction: "right" }, 300); 
+    }
+
     $scope.next = function(){
         $timeout.cancel(timeToNextExercise);
         advance();
@@ -63,7 +69,11 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,sett
     }
     
     $timeout(advance, exerciseTime);
+    $timeout(switchCards, exerciseTime);
     timer();
+    $('.exerciseCard').hide();
+    $('.exerciseCard').show("slide", { direction: "right" }, 300); 
+    
 
 
 
