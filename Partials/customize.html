@@ -6,24 +6,27 @@
 	<div class="controls">
 		<div class="control">
 			<i class="fa fa-clock-o fa-4x"></i>
-			<input ng-model='settings.exerciseTime' type="number">
+			<h2>{{settings.exerciseTime}} min.</h2>
+			<i id="moretime" ng-click="settings.exerciseTime = settings.exerciseTime+1"class="fa fa-chevron-up fa-3x"></i>
+			<i id="lesstime" ng-click="settings.exerciseTime = settings.exerciseTime-1" class="fa fa-chevron-down fa-3x"></i>
+			<!-- <input ng-model='settings.exerciseTime' type="number"> -->
 		</div>
 		<div class="control">
 			<i class="fa fa-tachometer fa-4x"></i>
 				<ul>
-					<li><input ng-model='settings.easy' type="checkbox" value=""><label for="">Easy</label></li>
-					<li><input ng-model='settings.moderate' type="checkbox" value="2"><label for="">Moderate</label> </li>
-					<li><input ng-model='settings.challenging' type="checkbox" value="3"><label for="">Challenging</label> </li>
+					<li><input id="easy" ng-model='settings.easy' type="checkbox" value=""><label for="easy">Easy</label></li>
+					<li><input id="moderate" ng-model='settings.moderate' type="checkbox" value="2"><label for="moderate">Moderate</label> </li>
+					<li><input id="challenging" ng-model='settings.challenging' type="checkbox" value="3"><label for="challenging">Challenging</label> </li>
 				</ul>	
 		</div>
 		<div class="control">
 			<i class="fa fa-male fa-4x"></i>
 			
 				<ul>
-					<li><input ng-model='settings.fullBody' type="checkbox" value="Full Body"><label for="">Full Body</label></li>
-					<li><input ng-model='settings.core' type="checkbox" value="Core"><label for="">Core</label> </li>
-					<li><input ng-model='settings.lowerBody' type="checkbox" value="Lower Body"><label for="">Lower Body</label> </li>
-					<li><input ng-model='settings.upperBody' type="checkbox" value="Upper Body"><label for="">Upper Body</label></li>
+					<li><input id="FB" ng-model='settings.fullBody' type="checkbox" value="Full Body"><label for="FB">Full Body</label></li>
+					<li><input id="C" ng-model='settings.core' type="checkbox" value="Core"><label for="C">Core</label> </li>
+					<li><input id="LB" ng-model='settings.lowerBody' type="checkbox" value="Lower Body"><label for="LB">Lower Body</label> </li>
+					<li><input id="UB" ng-model='settings.upperBody' type="checkbox" value="Upper Body"><label for="UB">Upper Body</label></li>
 				</ul>	
 		</div>
 		<!-- <div class="control">
@@ -40,24 +43,24 @@
 			<i class="fa fa-wrench fa-4x"></i>
 				<ul>
 					<li>
-						<input ng-model='settings.noEquipment' type="checkbox" value="None"><label for="">None</label>
+						<input id="N" ng-model='settings.noEquipment' type="checkbox" value="None"><label for="N">None</label>
 					</li>
 					<li>
-						<input ng-model='settings.weights' type="checkbox" value="Weights"><label for="">Weights (any size)</label> 
+						<input id="W" ng-model='settings.weights' type="checkbox" value="Weights"><label for="W">Weights (any size)</label> 
 					</li>
 					<li>
-						<input ng-model='settings.yogaMat' type="checkbox" value="Yoga Mat"><label for="">Yoga Mat</label> 
+						<input id="YM" ng-model='settings.yogaMat' type="checkbox" value="Yoga Mat"><label for="YM">Yoga Mat</label> 
 					</li>
 					<li>
-						<input ng-model='settings.exerciseBall' type="checkbox" value="Exercise Ball"><label for="">Exercise Ball</label>
+						<input id="EB" ng-model='settings.exerciseBall' type="checkbox" value="Exercise Ball"><label for="EB">Exercise Ball</label>
 					</li>
-					<li>
-						<input ng-model='settings.stretchBand' type="checkbox" value="Stretch Band"><label for="">Stretch Band</label>
-					</li>
+					<!-- <li>
+						<input id="SB" ng-model='settings.stretchBand' type="checkbox" value="Stretch Band"><label for="SB">Stretch Band</label>
+					</li> -->
 				</ul>
 		</div>	
 	</div>
 
 	<div class="start">
-			<button ng-click="go('/exercise')"><i class="fa fa-play"></i> Start Exercising</button>
+			<button ng-click="go('/ready')"><i class="fa fa-play"></i> Start Exercising</button>
 	</div>

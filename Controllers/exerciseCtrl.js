@@ -9,11 +9,13 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,sett
     count = exerciseTime/1000;
     restCount = restTime/1000;
     $scope.comingUp = null;
+    $scope.timerRunning = false;
     
 
     var advance = function(){
         if( $scope.currentIndex == playList.list.length-2){
             $location.path('/end').replace(); 
+            $('#beep')[0].play();
             return;         
             
         }
@@ -36,16 +38,21 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,sett
 
     var timer = function(){
         if(count==0){
+            advance();
+            switchCards();
             count =exerciseTime/1000;
             return;
         }
         $scope.count=count;
         count--;
         countDown = $timeout(timer,1000);
+        $scope.timerRunning = true;
     }
 
     var restTimer = function(){
         if(restCount==0){
+            advance();
+            switchCards();
             restCount =restTime/1000;
             return;
         }
@@ -55,17 +62,22 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,sett
     }
 
     var switchCards = function(){
-        $(".exerciseCard").hide("slide", { direction: "left" }, 100); 
+        $(".exerciseCard").hide("slide", { direction: "left" }, 50); 
         $(".exerciseCard").show("slide", { direction: "right" }, 300); 
     }
 
     $scope.next = function(){
-        $timeout.cancel(timeToNextExercise);
+        $timeout.cancel(countDown);
         advance();
     }
 
     $scope.pause = function(){
-        $timeout.pause();
+        if($scope.timerRunning){
+            $setTimeout.cancel(countDown);
+            $scope.timerRunning = false;
+        }else {
+            timer();
+        }
     }
     
     $timeout(advance, exerciseTime);

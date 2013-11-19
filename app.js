@@ -6,6 +6,10 @@ function legitsuRouteConfig($routeProvider){
 			controller: 'customizeCtrl',
 			templateUrl: 'Partials/customize.html'
 		}).
+		when('/ready', {
+			controller: 'readyCtrl',
+			templateUrl: 'Partials/ready.html'
+		}).
 		when('/exercise', {
 			controller: 'exerciseCtrl',
 			templateUrl: 'Partials/exercise.html'
