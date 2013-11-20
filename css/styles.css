@@ -19,9 +19,9 @@ h2 {
 	font-size: 3em;
 }
 
-nav h1 {
+nav h2 {
 	text-align: center;
-	font-size: 30px;
+	color: rgba(0,0,0,.5);
 }
 
 .controls {
@@ -62,7 +62,7 @@ nav h1 {
 }
 
 .control:hover {
-	background-color: rgba(0,0,0,.15);
+	background-color: rgba(0,0,0,.10);
 }
 
 .control i {
@@ -145,7 +145,7 @@ h1 {
 .exerciseControls i {
 	margin-left: 20px;
 	opacity: .8;
-	padding: 10px;
+	padding: 10px 0;
 }
 
 .exerciseControls i:hover {

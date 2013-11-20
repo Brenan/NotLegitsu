@@ -28,6 +28,7 @@ app.get('/api/exercise/next', function(req,res){
 
 	exercise.findAll({where:whereQuery}).success(function(exercises){
 		var numExercises = Math.round((req.query.exerciseTime*60)/40);
+		console.log(req.query);
 		var exerciseList = {list:[]};
 		for(i=0;i<numExercises;i++){
 			var e = Math.floor(Math.random() * (exercises.length));

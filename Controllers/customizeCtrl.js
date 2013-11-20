@@ -18,7 +18,7 @@ app.controller('customizeCtrl', function($scope, $location, settingsService){
 	};
 
 	var settingsObj = {
-		exerciseTime: $scope.settings.exerciseTime,
+		exerciseTime: null,
 		difficulty: [],
 		bodyFocus: [],
 		equipment:[]
@@ -62,17 +62,16 @@ app.controller('customizeCtrl', function($scope, $location, settingsService){
 		if ($scope.settings.stretchBand){
 			settingsObj.equipment.push("stretchBand");
 		}
+		settingsObj.exerciseTime = $scope.settings.exerciseTime;
 	};
 	
 	$scope.go = function ( path ) {
 		setSettingsObj();
-		console.log("Exercise time "+setSettingsObj.exerciseTime);
 		settingsService.createPlaylist(settingsObj, function(){
 			
 			$location.path( path );
 
 		});
-  		
 	};
 
 });
