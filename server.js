@@ -19,9 +19,14 @@ app.use(function(req,res,next){
 	next();
 });
 
+// api routes
+
 app.get('/api/exercise/next', function(req,res){
 
-	exercise.findAll().success(function(exercises){
+	var whereQuery = JSON.parse(JSON.stringify(req.query));
+	delete whereQuery.exerciseTime;
+
+	exercise.findAll({where:whereQuery}).success(function(exercises){
 		var numExercises = Math.round((req.query.exerciseTime*60)/40);
 		var exerciseList = {list:[]};
 		for(i=0;i<numExercises;i++){
@@ -38,26 +43,18 @@ app.get('/api/exercise/next', function(req,res){
 });
 
 
-// api routes get listed here
-//  apiroutes here: app.get('/',)
 app.use(express.static(__dirname));
 
 var exercise = sequelize.define('Exercise', {
 	name: Sequelize.STRING,
 	difficulty: Sequelize.INTEGER,
 	equipment: Sequelize.STRING,
+	bodyFocus: Sequelize.STRING,
 	step1: Sequelize.STRING,
 	step2: Sequelize.STRING,
 	step3: Sequelize.STRING
 });
 
-var bodyFocus = sequelize.define('BodyFocus', {
-	bodyFocus: Sequelize.STRING
-});
-
-// var goal = sequelize.define('Goal', {
-// goal: Sequelize.STRING
-// });
 
 sequelize.sync();
 

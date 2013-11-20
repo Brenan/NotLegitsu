@@ -32,12 +32,12 @@ nav h1 {
 }
 .control  {
 	width: 25%;
-	height: 325px;
+	height: 310px;
 	border-left: 2px solid white;
 	float: left;
 	border-radius: 5px;
 	border: 1px solid rgba(0,0,0,.2);;
-	background-color: rgba(0,0,0,.1);
+	background-color: rgba(0,0,0,.04);
 	
 }
 
@@ -50,15 +50,15 @@ nav h1 {
 .control input[type='checkbox']+label {
 	margin: 0;
     clear: none;
-    padding: 15px 0 15px 55px;
+    padding: 12px 0 12px 55px;
     cursor: pointer;
     font-size: 20px;
     
-    background: url('../img/uncheckcircle.png') left center no-repeat;
+    background: url('../img/uncheck.png') left center no-repeat;
 }
 
 .control input[type='checkbox']:checked + label{
-	background-image: url('../img/checkCircle.png');
+	background-image: url('../img/check.png');
 }
 
 .control:hover {
@@ -74,16 +74,7 @@ nav h1 {
 
 #moretime, #lesstime {
 	cursor: pointer;
-}
-
-.control:first-child input{
-	line-height: 50px;
-	text-align: center;
-	border-radius: 5px;
-	font-size: 30px;
-	width: 35%;
-	display: block;
-	margin: auto;
+	color: #333333;
 }
 
 input[type='checkbox'] {
@@ -92,6 +83,7 @@ input[type='checkbox'] {
 
 .control h2 {
 	text-align: center;
+	margin-top: 0;
 }
 
 .LegitsuUI {
@@ -138,7 +130,6 @@ ul{
 
 .exerciseNav {
 	width: 100%;
-	height: 60px;
 	background-color: rgb(61,198,242);
 }
 
@@ -153,7 +144,8 @@ h1 {
 
 .exerciseControls i {
 	margin-left: 20px;
-	opacity: .7;
+	opacity: .8;
+	padding: 10px;
 }
 
 .exerciseControls i:hover {
@@ -163,28 +155,24 @@ h1 {
 .exerciseCard {
 	height: 85%;
 	width: 70%;
-	border: 2px solid rgb(61,198,242);
+	border: 4px solid rgb(61,198,242);
 	border-radius: 5px;
 	position: relative;
 	margin: auto;
 	margin-top: 20px;
-	-moz-box-shadow: 5px 5px 5px #888;
-	-webkit-box-shadow: 5px 5px 5px #888;
-	box-shadow: 5px 5px 5px #888;
 }
 
 .timer {
-	border: 2px solid black;
-	border-radius: 5px;
 	width: 125px;
-	padding: 10px;
+	/*padding: 10px;*/
 	position: absolute;
-	right: 10px;
-	top: 10px;
+	right: 0;
+	top: 0;
 }
 
-.timer h2 {
+.timer h1 {
 	text-align: center;
+	color: rgb(61,198,242);
 }
 
 .steps {
@@ -194,6 +182,10 @@ h1 {
 .steps div {
 	width: 33%;
 	display: inline-block;
+}
+
+.exerciseCard h2{
+	text-align: center;
 }
 
 
@@ -207,7 +199,7 @@ h1 {
 	text-align: center;
 }
 
-.end span{
+span{
 	color: rgb(61,198,242);
 }
 

@@ -3,6 +3,7 @@ app.controller('readyCtrl', function($scope,$timeout,$location,settingsService){
 var playList = settingsService.loadPlaylist();
 
 $scope.firstUp = playList.list[0].name;
+$scope.equipNeeded = "Equipment: " +playList.list[0].equipment;
 
 var startWorkout = function(){
 	$location.path('/exercise').replace();

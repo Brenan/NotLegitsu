@@ -9,6 +9,7 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,sett
     count = exerciseTime/1000;
     restCount = restTime/1000;
     $scope.comingUp = null;
+    $scope.equipmentNeeded = null;
     $scope.timerRunning = false;
     
 
@@ -24,12 +25,14 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,sett
             $('#beep')[0].play();
             var switchIt = $timeout(switchCards, restTime).then(advance);
             $scope.comingUp ="Up Next: " + playList.list[$scope.currentIndex+2].name;
+            $scope.equipmentNeeded = "Equipment: " + playList.list[$scope.currentIndex+2].equipment;
             restTimer();
 
         } else{
             $('#beepTwo')[0].play();
             var switchIt = $timeout(switchCards, exerciseTime).then(advance);
             $scope.comingUp=null;
+            $scope.equipmentNeeded=null;
             timer();
         }
 
@@ -38,8 +41,8 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,sett
 
     var timer = function(){
         if(count==0){
-            advance();
-            switchCards();
+            // advance();
+            // switchCards();
             count =exerciseTime/1000;
             return;
         }
@@ -51,8 +54,8 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,sett
 
     var restTimer = function(){
         if(restCount==0){
-            advance();
-            switchCards();
+            // advance();
+            // switchCards();
             restCount =restTime/1000;
             return;
         }
@@ -68,17 +71,28 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,sett
 
     $scope.next = function(){
         $timeout.cancel(countDown);
+        $timeout.cancel(restCount);
+        $timeout.cancel(switchIt);
         advance();
     }
 
     $scope.pause = function(){
         if($scope.timerRunning){
-            $setTimeout.cancel(countDown);
+            $timeout.cancel(countDown);
+            $timeout.cancel(restCount);
+            $timeout.cancel(switchIt);
             $scope.timerRunning = false;
         }else {
             timer();
         }
     }
+
+    $scope.$on('$locationChangeStart', function(){
+    $timeout.cancel(countDown);
+    $timeout.cancel(restCount);
+    $timeout.cancel(switchIt);
+
+});
     
     $timeout(advance, exerciseTime);
     $timeout(switchCards, exerciseTime);
