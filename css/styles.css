@@ -1,6 +1,11 @@
 /* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
 /*html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
 */
+html, body, .mainView, .backdrop{
+	height: 100%;
+}
+
+
 .logo {
 	padding-top: 50px;
 	display: block;
@@ -21,7 +26,7 @@ h2 {
 
 nav h2 {
 	text-align: center;
-	color: rgba(0,0,0,.5);
+	color: rgba(0,0,0,.7);
 }
 
 .controls {
@@ -31,14 +36,27 @@ nav h2 {
 
 }
 .control  {
-	width: 25%;
+	width: 18%;
+	margin-right: 5%;
 	height: 310px;
-	border-left: 2px solid white;
 	float: left;
-	border-radius: 5px;
-	border: 1px solid rgba(0,0,0,.2);;
 	background-color: rgba(0,0,0,.04);
 	
+}
+
+.control:first-child{
+	margin-left: 7%;
+}
+
+.controlHeading {
+	padding: 10px;
+	width: 100%;
+	background-color: rgba(61,198,242,.7);
+}
+
+.controlHeading h4 {
+	text-align: center;
+	font-weight: bold;
 }
 
 .control input[type='checkbox'] {
@@ -83,7 +101,7 @@ input[type='checkbox'] {
 
 .control h2 {
 	text-align: center;
-	margin-top: 0;
+	margin-top: 10px;
 }
 
 .LegitsuUI {
@@ -91,7 +109,8 @@ input[type='checkbox'] {
 }
 
 .control ul {
-	padding-left: 20px;
+	padding-left: 0;
+	padding-top: 10px;
 }
 
 li label {
@@ -105,7 +124,6 @@ ul{
 .start button {
 	background-color: rgb(61,198,242);
 	padding: 20px;
-	border-radius:  5px;
 	font-size: 2em;
 	color: rgba(0,0,0,.7);
 	border:0;
@@ -117,7 +135,7 @@ ul{
 	text-align: center;
 }
 
- .start button:hover {
+.start button:hover {
 	background-color: rgba(61,198,242,.8);
 }
 
@@ -131,6 +149,14 @@ ul{
 .exerciseNav {
 	width: 100%;
 	background-color: rgb(61,198,242);
+}
+
+.backdrop {
+	background-color: rgba(0,0,0,.04);
+	height: 100%;
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 h1 {
@@ -156,9 +182,9 @@ h1 {
 	height: 85%;
 	width: 70%;
 	border: 4px solid rgb(61,198,242);
-	border-radius: 5px;
 	position: relative;
 	margin: auto;
+	background-color: white;
 	margin-top: 20px;
 }
 

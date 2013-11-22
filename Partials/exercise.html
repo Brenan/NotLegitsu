@@ -4,25 +4,31 @@
 		<i ng-click="next()" class="fa fa-arrow-right fa-4x"></i>	
 	</div>
 </nav>
-
-<div class="exerciseCard">
-	
+<div class="backdrop">
+	<div class="exerciseCard">
+		
 		<div class="timer">
 			<h1>{{count}}</h1>
-			
 		</div>
+
 		<h1>{{currentExercise.name}}</h1>
 
-	<div class="steps">
-		<div><img src="{{currentExercise.step1}}" alt=""></div>
-		<div><img src="{{currentExercise.step2}}" alt=""></div>
-		<div><img src="{{currentExercise.step3}}" alt=""></div>
+		<div class="steps">
+			<div>
+				<img src="{{currentExercise.step1}}" alt="">
+			</div>
+			<div>
+				<img src="{{currentExercise.step2}}" alt="">
+			</div>
+			<div>
+				<img src="{{currentExercise.step3}}" alt="">
+			</div>
+		</div>
+			
+		<h1><span>{{comingUp}}</span></h1>
+		<h2>{{equipmentNeeded}}</h2>
+
 	</div>
-	
-	<h1><span>{{comingUp}}</span></h1>
-	<h2>{{equipmentNeeded}}</h2>
-
-
 </div>
 
 

@@ -1,6 +1,6 @@
 app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,settingsService){
 
-	
+
     var playList = settingsService.loadPlaylist();
     $scope.currentIndex = 0;
     $scope.currentExercise = playList.list[$scope.currentIndex];
@@ -96,9 +96,11 @@ app.controller('exerciseCtrl', function($scope,$timeout,$location,$resource,sett
     $timeout(advance, exerciseTime);
     $timeout(switchCards, exerciseTime);
     timer();
+
     $('.exerciseCard').hide();
     $('.exerciseCard').show("slide", { direction: "right" }, 300);
     
+
 
 
 

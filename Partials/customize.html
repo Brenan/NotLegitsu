@@ -5,14 +5,20 @@
 
 	<div class="controls">
 		<div class="control">
-			<i class="fa fa-clock-o fa-4x"></i>
+			<div class="controlHeading">
+				<h4>Workout Length</h4>
+			</div>
+			<!-- <i class="fa fa-clock-o fa-4x"></i> -->
 			<h2>{{settings.exerciseTime}} min.</h2>
 			<i id="moretime" ng-click="settings.exerciseTime = settings.exerciseTime+1"class="fa fa-chevron-up fa-3x"></i>
 			<i id="lesstime" ng-click="settings.exerciseTime = settings.exerciseTime-1" class="fa fa-chevron-down fa-3x"></i>
 			<!-- <input ng-model='settings.exerciseTime' type="number"> -->
 		</div>
 		<div class="control">
-			<i class="fa fa-tachometer fa-4x"></i>
+			<div class="controlHeading">
+				<h4>Workout Difficulty</h4>
+			</div>
+			<!-- <i class="fa fa-tachometer fa-4x"></i> -->
 				<ul>
 					<li><input id="easy" ng-model='settings.easy' type="checkbox" value=""><label for="easy">Easy</label></li>
 					<li><input id="moderate" ng-model='settings.moderate' type="checkbox" value="2"><label for="moderate">Moderate</label> </li>
@@ -20,7 +26,10 @@
 				</ul>	
 		</div>
 		<div class="control">
-			<i class="fa fa-male fa-4x"></i>
+			<div class="controlHeading">
+				<h4>Workout Focus</h4>
+			</div>
+			<!-- <i class="fa fa-male fa-4x"></i> -->
 			
 				<ul>
 					<li><input id="FB" ng-model='settings.fullBody' type="checkbox" value="Full Body"><label for="FB">Full Body</label></li>
@@ -40,13 +49,16 @@
 				</ul>
 		/div>< -->
 		<div class="control">
-			<i class="fa fa-wrench fa-4x"></i>
+			<div class="controlHeading">
+				<h4>Your Equipment</h4>
+			</div>
+			<!-- <i class="fa fa-wrench fa-4x"></i> -->
 				<ul>
 					<li>
 						<input id="N" ng-model='settings.noEquipment' type="checkbox" value="None"><label for="N">None</label>
 					</li>
 					<li>
-						<input id="W" ng-model='settings.weights' type="checkbox" value="Weights"><label for="W">Weights (any size)</label> 
+						<input id="W" ng-model='settings.weights' type="checkbox" value="Weights"><label for="W">Weights</label> 
 					</li>
 					<li>
 						<input id="YM" ng-model='settings.yogaMat' type="checkbox" value="Yoga Mat"><label for="YM">Yoga Mat</label> 
